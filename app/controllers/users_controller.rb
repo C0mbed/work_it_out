@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.find_by(email: user_params[:email])
+    byebug
     if !@user.nil?
       session[:user_id] = @user.id
 
@@ -26,6 +27,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:fullname, :email, :password, :admin)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :admin)
   end
 end
