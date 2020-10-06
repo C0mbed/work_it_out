@@ -1,0 +1,21 @@
+
+<h1>Create User</h1>
+
+<%= form_with model: @user, class: "new_user_form" do |f| %>
+  <%= f.label :fullname %>
+  <%= f.text_field :fullname %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.text_field :password_confirmation %>
+
+  <%= f.label :admin %>
+  <%= f.check_box :admin %>
+
+  <%= f.submit "create user" %>
+<% end %>
