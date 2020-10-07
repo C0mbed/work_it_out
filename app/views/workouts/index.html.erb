@@ -3,7 +3,7 @@
 <ul>All Workouts</ul>
 <% if !@workouts.nil? %>
   <% @workouts.each do |workout| %>
-    <li><%= link_to workout.title, workout %> <%= workout.type %> <%= workout.rating %></li>
+    <li><%= link_to workout.title, workout %> <%= workout.workout_type %></li>
   <% end %>
   </ul>
 <% end %>

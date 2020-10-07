@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create', as: 'sessions'
 
   resources :users, only: [:create, :show, :new, :edit, :update] do
-    resources :workouts, only: [:show. :index]
+    resources :workouts, only: [:show, :index]
   end
 
   resources :workouts
