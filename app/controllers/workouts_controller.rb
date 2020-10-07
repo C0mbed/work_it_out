@@ -24,11 +24,15 @@ class WorkoutsController < ApplicationController
       if @workout.save
         @workout = Workout.find_by(title: workout_params[:title])
 
-        redirect_to "workout/#{@workout.id}"
+        redirect_to "/workouts/#{@workout.id}"
       else
         redirect_to 'workouts'
       end
     end
+  end
+
+  def show
+    @workout = Workout.find(params[:id])
   end
 
   private
