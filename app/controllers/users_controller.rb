@@ -15,7 +15,7 @@ class UsersController < ApplicationController
         @user = User.find_by(email: user_params[:email])
         session[:user_id] = @user.id
 
-        render 'workouts'
+        redirect_to 'workouts'
       else
         redirect_to 'new'
       end

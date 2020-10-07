@@ -1,9 +1,10 @@
 <h1> Workouts </h1>
 
 <ul>All Workouts</ul>
-<% @workouts.each do |workout| %>
-  <li><%= link_to workout.title, workout %> <%= workout.type %> <%= workout.rating %></li>
+<% if !@workouts.nil? %>
+  <% @workouts.each do |workout| %>
+    <li><%= link_to workout.title, workout %> <%= workout.type %> <%= workout.rating %></li>
+  <% end %>
+  </ul>
 <% end %>
-</ul>
-
 <%= link_to 'create new workout', new_workout_path %>
