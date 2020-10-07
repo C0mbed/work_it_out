@@ -35,6 +35,10 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
   end
 
+  def edit
+    @workout = Workout.find(params[:id])
+  end
+
   private
 
   def workout_params
