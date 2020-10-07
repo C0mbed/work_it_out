@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root 'users#new'
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
-  post 'sessions', to: 'sessions#create', as: 'sessions'
-  resources :users, only: [:new, :index]
+  post 'login', to: 'sessions#create', as: 'sessions'
+  resources :users, only: [:create, :show, :new, :edit, :update]
 end

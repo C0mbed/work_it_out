@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.find_by(email: user_params[:email])
-    byebug
     if !@user.nil?
       session[:user_id] = @user.id
 
@@ -16,12 +15,17 @@ class UsersController < ApplicationController
         @user = User.find_by(email: user_params[:email])
         session[:user_id] = @user.id
 
-        redirect_to "/lists/"
+        redirect_to "/users/#{@user.id}"
       else
         redirect_to 'new'
       end
     end
-    byebug
+  end
+
+  def show
+    if logged_in?
+      @user = User.find(params[:id])
+    end
   end
 
   private
