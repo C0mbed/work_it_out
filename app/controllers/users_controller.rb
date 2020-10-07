@@ -8,14 +8,14 @@ class UsersController < ApplicationController
     if !@user.nil?
       session[:user_id] = @user.id
 
-      redirect_to "/users/#{@user.id}"
+      redirect_to "/workouts/index"
     else
       @user = User.create(user_params)
       if @user.save
         @user = User.find_by(email: user_params[:email])
         session[:user_id] = @user.id
 
-        redirect_to "/users/#{@user.id}"
+        redirect_to "/workouts/index"
       else
         redirect_to 'new'
       end
