@@ -5,7 +5,6 @@ class CreateWorkouts < ActiveRecord::Migration[6.0]
       t.string :difficulty
       t.integer :minutes
       t.string :type
-      t.integer :rating
       t.integer :likes
 
       t.timestamps

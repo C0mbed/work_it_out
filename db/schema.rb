@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2020_10_07_145431) do
     t.string "difficulty"
     t.integer "minutes"
     t.string "type"
-    t.integer "rating"
     t.integer "likes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
