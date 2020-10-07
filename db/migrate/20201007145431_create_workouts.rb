@@ -6,6 +6,7 @@ class CreateWorkouts < ActiveRecord::Migration[6.0]
       t.integer :minutes
       t.string :type
       t.integer :likes
+      t.integer :user_id
 
       t.timestamps
     end
