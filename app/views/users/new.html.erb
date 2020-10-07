@@ -2,25 +2,7 @@
 <h1>Create User</h1>
 
 <%= form_with model: @user, class: "new_user_form" do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.label :admin %>
-  <%= f.check_box :admin %>
-
-  <%= f.submit "create user" %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
 <% end %>
 
 <p> Already have an account?</p><%=link_to "login", login_path %>

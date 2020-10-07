@@ -1,0 +1,6 @@
+
+<h1>Edit User</h1>
+
+<%= form_with model: @user, class: "edit_user_form" do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>
