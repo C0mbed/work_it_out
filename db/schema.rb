@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_10_07_145431) do
     t.string "title"
     t.string "difficulty"
     t.integer "minutes"
-    t.string "type"
+    t.string "workout_type"
     t.integer "likes"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
