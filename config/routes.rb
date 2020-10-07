@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   post 'login', to: 'sessions#create', as: 'sessions'
   resources :users, only: [:create, :show, :new, :edit, :update]
+  resources :workouts
 end
