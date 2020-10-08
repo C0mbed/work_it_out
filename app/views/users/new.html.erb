@@ -1,6 +1,12 @@
 
 <h1>Create User</h1>
 
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
 <%= form_with model: @user, class: "new_user_form" do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>
 <% end %>
