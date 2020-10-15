@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :workouts
+
+  resources :exercises
+  #nest repetitions under exercise
 end
