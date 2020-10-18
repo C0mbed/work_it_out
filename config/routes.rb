@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get '/auth/facebook/callback' => 'sessions#create_facebook'
   post 'login', to: 'sessions#create', as: 'sessions'
+  post 'logout', to: 'sessions#destroy', as: 'logout'
 
   resources :users, only: [:create, :show, :new, :edit, :update] do
     resources :workouts, only: [:show, :index, :new]
