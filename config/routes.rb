@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create', as: 'sessions'
 
   resources :users, only: [:create, :show, :new, :edit, :update] do
-    resources :workouts, only: [:show, :index]
+    resources :workouts, only: [:show, :index, :new]
   end
 
-  resources :workouts
+  resources :workouts, only: [:index, :show]
 
   resources :exercises do
     resources :repetitions

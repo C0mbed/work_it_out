@@ -4,7 +4,7 @@ class WorkoutsController < ApplicationController
   end
 
   def index
-    @workouts = Workout.find_by(id: params[:id])
+    @workouts = Workout.all
   end
 
   def create
