@@ -11,14 +11,14 @@ class SessionsController < ApplicationController
       u.password = auth['uid']
     end
     session[:user_id] = @user.id
-    redirect_to user_workouts_path(@user)
+    redirect_to workouts_path(@user)
   end
 
   def create
     @user = User.find_by(email: params[:email])
     if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to user_workouts_path(@user)
+      redirect_to workouts_path(@user)
     else
       render login_path
     end

@@ -2,6 +2,5 @@
 <h3><%= @workout.difficulty %></h3>
 <h3><%= @workout.workout_type %></h3>
 
-<%= link_to "add exercises", exercises_path(@workout) %>
-
+<%= link_to "add exercises", workout_exercises_path(@workout) %>
 <%= link_to "all workouts", workouts_path %>

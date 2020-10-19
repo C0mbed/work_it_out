@@ -4,16 +4,18 @@ Rails.application.routes.draw do
   root 'users#new'
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
-  get '/auth/facebook/callback' => 'sessions#create_facebook'
+  get '/auth/facebook/callback', to: 'sessions#create_facebook'
   post 'login', to: 'sessions#create', as: 'sessions'
-  post 'logout', to: 'sessions#destroy', as: 'logout'
-  post '/workouts', to: "workouts#index"
+  delete 'logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :users, only: [:create, :show, :new, :edit, :update] do
-    resources :workouts, only: [:show, :index, :new, :create]
+  resources :users do
+    resources :workouts, only: [:new, :create]
   end
 
-  resources :exercises do
-    resources :repetitions
+  resources :workouts do
+    resources :exercises do
+      resources :repetitions
+    end
   end
+ 
 end

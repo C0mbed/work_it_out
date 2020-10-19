@@ -1,5 +1,5 @@
 class WorkoutsController < ApplicationController
-  before_action :current_user
+  before_action :set_user
 
   def new
     @workout = Workout.new
@@ -11,7 +11,6 @@ class WorkoutsController < ApplicationController
 
   def create
     @workout = Workout.find_by(title: workout_params[:title])
-    byebug
     if !@workout.nil?
       if session[:user_id] == @workout.user_id
         redirect_to "workout/#{@workout.id}"
@@ -22,7 +21,6 @@ class WorkoutsController < ApplicationController
     else
       @workout = Workout.new(workout_params)
       @workout.user_id = session[:user_id]
-      byebug
       @workout.save
       if @workout.save
         @workout = Workout.find_by(title: workout_params[:title])
@@ -43,6 +41,9 @@ class WorkoutsController < ApplicationController
   end
 
   private
+  def set_user
+    @user = current_user
+  end
 
   def workout_params
     params.require(:workout).permit(:title, :difficulty, :minutes, :workout_type)
