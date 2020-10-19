@@ -7,12 +7,11 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create_facebook'
   post 'login', to: 'sessions#create', as: 'sessions'
   post 'logout', to: 'sessions#destroy', as: 'logout'
+  post '/workouts', to: "workouts#index"
 
   resources :users, only: [:create, :show, :new, :edit, :update] do
-    resources :workouts, only: [:show, :index, :new]
+    resources :workouts, only: [:show, :index, :new, :create]
   end
-
-  resources :workouts, only: [:index, :show]
 
   resources :exercises do
     resources :repetitions

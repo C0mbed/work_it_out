@@ -26,7 +26,9 @@ end
 10.times do
     Workout.create(
         title: Faker::FunnyName.name,
-        difficulty: 10,
-        minutes: 50
+        difficulty: "hard",
+        minutes: 50,
+        workout_type: "strength",
+        user_id: 1
     )
 end
