@@ -13,13 +13,17 @@ class UsersController < ApplicationController
       redirect_to login_path
     else
       @user = User.create(user_params)
-      if @user.save
+      if @user.save && @user.valid? 
         @user = User.find_by(email: user_params[:email])
         session[:user_id] = @user.id
 
-        render '/workouts/home'
+        redirect_to workouts_path
       else
-        redirect_to 'new'
+        @user.errors.full_messages.each do |msg|
+          flash[:notice] = "#{msg}"
+        end
+
+        redirect_to new_user_path
       end
     end
   end

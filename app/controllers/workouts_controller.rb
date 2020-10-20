@@ -1,5 +1,6 @@
 class WorkoutsController < ApplicationController
   before_action :set_user
+  before_action :check_login
 
   def new
     @workout = Workout.new
@@ -47,6 +48,12 @@ class WorkoutsController < ApplicationController
 
   def workout_params
     params.require(:workout).permit(:title, :difficulty, :minutes, :workout_type)
+  end
+
+  def check_login
+    if !logged_in?
+      redirect_to login_path
+    end 
   end
 
 end
