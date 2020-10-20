@@ -3,7 +3,7 @@
 <% if @exercises.length > 0 %>
 <ul>
   <% @exercises.each do |exercise| %>
-    <li><%= exercise.name %> <%= exercise.exercise_type %> <%= link_to "Add", new_workout_exercise_repetition_path(exercise, @workout) %></li>
+    <li><%= exercise.name %> <%= exercise.exercise_type %> <%= link_to "Add", new_workout_exercise_repetition_path(@workout, exercise) %></li>
   <% end %>
 </ul>>
 <% end %>

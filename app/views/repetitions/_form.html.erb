@@ -1,11 +1,11 @@
 
-  <%= f.hidden_field :workout_id, :value => @workout.id %>
-  <%=  f.hidden_field :exercise_id, :value => @exercise.id %>
+  <%= f.hidden_field :workout_id, :value => params[:workout_id] %>
+  <%=  f.hidden_field :exercise_id, :value => params[:exercise_id] %>
 
   <%= f.label :reps %>
   <%= f.text_field :reps %>
 
   <%= f.label :sets %>
   <%= f.text_field :sets %>
-
+<% byebug %>
   <%= f.submit "submit" %>

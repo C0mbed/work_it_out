@@ -6,7 +6,7 @@
     <ul>
         <% @workout.repetitions.each do |rep| %>
         <% @exercise = Exercise.find_by(id: rep.exercise_id) %>
-            <li><%= @exercise.name %> - <%= @exercise.exercise_type %> - <%= @exercise.equipment %> </li>
+            <li>Name: <%= @exercise.name %> - Type: <%= @exercise.exercise_type %> - Equipment: <%= @exercise.equipment %> - Reps: <%= rep.reps %> - Sets: <%= rep.sets %></li>
         <% end %>
     </ul>
 <% end %>
