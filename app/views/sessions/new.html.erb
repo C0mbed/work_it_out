@@ -1,14 +1,14 @@
 <div class="wrapper fadeInDown">
-  <div class="formContent">
+  <div id="formContent">
     <%= form_with do |f| %>
 
       <%= f.text_field :email, class: 'fadeIn first', placeholder: 'email' %>
       <%= f.password_field :password, class: 'fadeIn first', placeholder: 'password' %>
 
       <%= f.submit "log in", class: 'fadeIn third' %>
-    <% end %>
-    <div class="wrapper FadeInDown">
-      <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+      <div class="fb-login-button" data-size="medium" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
+      <br>
+      <br>
       <%=link_to "create new account", new_user_path %>
-      </div>
+    <% end %>
 </div>
