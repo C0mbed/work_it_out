@@ -1,19 +1,11 @@
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+<%= f.text_field :first_name, class: 'fadeIn first', placeholder: 'first name' %>
+<%= f.text_field :last_name, class: 'fadeIn second', placeholder: 'last name' %>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
+<%= f.text_field :email, class: 'fadeIn third', placeholder: 'email' %>
+<%= f.password_field :password, class: 'fadeIn fourth', placeholder: 'password' %>
+<%= f.password_field :password_confirmation, class: 'fadeIn fifth', placeholder: 'confirm password' %>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+<%= f.label :admin %>
+<%= f.check_box :admin, class: 'fadeIn sixth', default: false %><br>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.label :admin %>
-  <%= f.check_box :admin %>
-
-  <%= f.submit "submit" %>
+<%= f.submit "submit" %>

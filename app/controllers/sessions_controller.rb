@@ -17,7 +17,6 @@ class SessionsController < ApplicationController
     if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to workouts_path(@user)
-      flash[:notice] = "login successful"
     else
       flash[:error] = "Incorrect email or password.  Password and email field cannot be blank."
       redirect_to login_path

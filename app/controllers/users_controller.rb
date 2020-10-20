@@ -5,10 +5,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.find_by(email: user_params[:email])
+    byebug
     if !@user.nil?
       session[:user_id] = @user.id
 
-      render '/workouts/home'
+      flash[:notice] = "user account already exists, please login"
+      redirect_to login_path
     else
       @user = User.create(user_params)
       if @user.save
