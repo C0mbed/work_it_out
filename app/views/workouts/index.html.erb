@@ -1,9 +1,11 @@
-<h1> Workouts </h1>
-
-<ul>All Workouts</ul>
-<% if !@workouts.nil? %>
-  <% @workouts.each do |workout| %>
-    <li><%= link_to workout.title, workout_path(workout) %> <%= workout.workout_type %></li>
-  <% end %>
-  </ul>
-<% end %>
+<%if !@workouts.nil? %>
+  <%@workouts.each do |workout|%>
+      <div class="card-workout-info">
+        <h5 class="card-title"><%= link_to "#{workout.title}", workout_path(workout) %></h5>
+        <p class="card-content"><%= workout.workout_type %></p>
+        <p class="card-content"><%= workout.difficulty%></p>
+        <p class="card-content"><%= workout.minutes %></p>
+        <p class="card-content">created by <%= workout.user.first_name %></p>
+      </div>
+  <%end%>
+<%end%>
