@@ -30,8 +30,17 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
+  def update
     @user = User.find(params[:id])
+    if current_user.id == @user.id && logged_in?
+      @user.update(user_params)
+
+      flash[:notice] = "update successful"
+      redirect_to workouts_path
+    else
+      flash[:notice] = "You do not have perission to edit this user"
+      redirect_to workouts_path
+    end
   end
 
   private
