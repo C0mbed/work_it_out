@@ -36,17 +36,18 @@
   </header>
 
   <!--#View container-->
-  <div class='notice'>
-    <% if flash[:notice]%>   
-      <%= flash[:notice] %>
-    <% else %>
-      <%= flash[:error] %>
-    <% end %>
-  </div>
 
   <%= yield %>
 
-  <!--JS-->
+  <div class='notice'>
+    <% if flash[:notice] %> 
+      <% flash.each do |k, v|%>
+        <% v.each do |msg|%>
+         <%= content_tag :div, msg %>
+        <% end %>  
+      <% end %>
+    <% end %>
+  </div>
   
   </body>
 </html>

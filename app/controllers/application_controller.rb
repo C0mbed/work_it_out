@@ -12,9 +12,4 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def print_errors(model)
-    if model.errors.any?
-      errors.full_messages
-    end
-  end
 end

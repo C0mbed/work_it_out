@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.find_by(email: user_params[:email])
-    byebug
     if !@user.nil?
       session[:user_id] = @user.id
 
@@ -19,8 +18,9 @@ class UsersController < ApplicationController
 
         redirect_to workouts_path
       else
+        flash[:notice] = []
         @user.errors.full_messages.each do |msg|
-          flash[:notice] = "#{msg}"
+          flash[:notice] << "#{msg}"
         end
 
         redirect_to new_user_path
