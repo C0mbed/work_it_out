@@ -1,5 +1,8 @@
-<h1>Edit Workout</h1>
-
-<%= form_with model: @workout, class: "edit_workout_form" do |f| %>
-  <%= render :partial => 'form', :locals => { :f => f } %>
-<% end %>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <%= form_with model: @workout do |f| %>
+       <%= render :partial => 'form', :locals => { :f => f } %>
+      <br>
+      <%=link_to "cancel", workout_path(@workout) %>
+    <% end %>
+</div>

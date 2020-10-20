@@ -1,13 +1,9 @@
-<%= f.label :title %>
-<%= f.text_field :title %>
+<%= f.text_field :title, class: 'fadeIn first', placeholder: 'title' %>
 
-<%= f.label :difficulty %>
-<%= f.text_field :difficulty %>
+<%= f.text_field :difficulty, class: 'fadeIn second', placeholder: 'difficulty' %>
 
-<%= f.label :minutes %>
-<%= f.text_field :minutes %>
+<%= f.text_field :minutes, class: 'fadeIn third', placeholder: 'minutes' %>
 
-<%= f.label :workout_type %>
-<%= f.text_field :workout_type %>
+<%= f.text_field :workout_type, class: 'fadeIn fourth', placeholder: 'workout type' %>
 
 <%= f.submit "submit" %>

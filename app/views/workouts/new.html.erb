@@ -1,7 +1,8 @@
-<h1>Create Workout</h1>
-
-<%= form_with model: @workout, class: "new_workout_form" do |f| %>
-  <%= render :partial => 'form', :locals => { :f => f } %>
-<% end %>
-
-<%=link_to "cancel", user_workouts_path %>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <%= form_with model: @workout do |f| %>
+       <%= render :partial => 'form', :locals => { :f => f } %>
+      <br>
+      <%=link_to "cancel", workouts_path %>
+    <% end %>
+</div>
