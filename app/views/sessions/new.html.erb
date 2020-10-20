@@ -1,16 +1,14 @@
-<h1>Login</h1>
+<div class="wrapper fadeInDown">
+  <div class="formContent">
+    <%= form_with do |f| %>
 
-<%= form_with class: "new_session_form" do |f| %>
+      <%= f.text_field :email, class: 'fadeIn first', placeholder: 'email' %>
+      <%= f.password_field :password, class: 'fadeIn first', placeholder: 'password' %>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit "log in" %>
-<% end %>
-
-<%= link_to('Log in with Facebook!', '/auth/facebook') %>
-
-<p> need an account?</p><%=link_to "create new account", new_user_path %>
+      <%= f.submit "log in", class: 'fadeIn third' %>
+    <% end %>
+    <div class="wrapper FadeInDown">
+      <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+      <%=link_to "create new account", new_user_path %>
+      </div>
+</div>

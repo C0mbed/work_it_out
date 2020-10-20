@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  def new
-  end
 
   def create_facebook
     @user = User.find_or_create_by(uid: auth['uid']) do |u|
@@ -19,8 +17,10 @@ class SessionsController < ApplicationController
     if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to workouts_path(@user)
+      flash[:notice] = "login successful"
     else
-      render login_path
+      flash[:error] = "Incorrect email or password.  Password and email field cannot be blank."
+      redirect_to login_path
     end
   end
 
