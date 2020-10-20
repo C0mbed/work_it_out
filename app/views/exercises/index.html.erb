@@ -1,9 +1,11 @@
 <h1> Exercises </h1>
 
 <% if @exercises.length > 0 %>
+<ul>
   <% @exercises.each do |exercise| %>
-    <li><%= exercise.name %> <%= exercise.exercise_type %> <%= link_to "Add", new_workout_exercise_repetition_path %></li>
+    <li><%= exercise.name %> <%= exercise.exercise_type %> <%= link_to "Add", new_workout_exercise_repetition_path(exercise, @workout) %></li>
   <% end %>
+</ul>>
 <% end %>
 
 <%= link_to "new exercise", new_workout_exercise_path %>

@@ -2,6 +2,15 @@
 <h3><%= @workout.difficulty %></h3>
 <h3><%= @workout.workout_type %></h3>
 
+<% if @workout.repetitions.length > 0 %>
+    <ul>
+        <% @workout.repetitions.each do |rep| %>
+        <% @exercise = Exercise.find_by(id: rep.exercise_id) %>
+            <li><%= @exercise.name %> - <%= @exercise.exercise_type %> - <%= @exercise.equipment %> </li>
+        <% end %>
+    </ul>
+<% end %>
+
 <%= link_to "add exercises", workout_exercises_path(@workout) %>
 <%= link_to "all workouts", workouts_path %>
 
