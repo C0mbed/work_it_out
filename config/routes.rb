@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post 'repetitions', to: 'repetitions#create', as: 'repetitions'
   delete 'repetition', to: 'repetitions#destroy', as: 'repetition'
 
-  resources :users do
+  resources :users, only: [:new, :create, :edit, :update] do
     resources :workouts, only: [:new, :create]
   end
 
