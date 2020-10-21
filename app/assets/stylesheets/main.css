@@ -80,7 +80,8 @@ section {
 }
 
 .card-workout-info {
-    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
     -webkit-border-radius: 10px 10px 10px 10px;
