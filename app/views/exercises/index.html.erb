@@ -1,14 +1,13 @@
-<h1> Exercises </h1>
+<div class="card-workout-info">
+  <h3 class="card-title"><%= @workout.title %></h3>
+  <% if @exercises.length > 0 %>
+    <ul class="show-rep">
+      <% @exercises.each do |exercise| %>
+        <li class="rep">Name: <%= exercise.name %><br>Type: <%= exercise.exercise_type %> - Equipment: <%= exercise.equipment %><br><%= link_to "Add", new_workout_exercise_repetition_path(@workout, exercise) %></li>
+      <% end %>
+    </ul>
 
-<% if @exercises.length > 0 %>
-<ul>
-  <% @exercises.each do |exercise| %>
-    <li><%= exercise.name %> <%= exercise.exercise_type %> <%= link_to "Add", new_workout_exercise_repetition_path(@workout, exercise) %></li>
-  <% end %>
-</ul>>
-<% end %>
-
-<%= link_to "new exercise", new_workout_exercise_path %>
-<%= link_to "cancel", workouts_path %>
-
-
+    <%= link_to "new exercise", new_workout_exercise_path %><br>
+    <%= link_to "cancel", workouts_path %>
+  <% end %> 
+</div>
