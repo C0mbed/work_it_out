@@ -1,0 +1,8 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <%= form_with model: @exercise do |f| %>
+       <%= render :partial => 'form', :locals => { :f => f } %>
+      <br>
+      <%=link_to "cancel", workout_exercises_path %>
+    <% end %>
+</div>

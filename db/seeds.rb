@@ -19,7 +19,8 @@ end
     Exercise.create(
         name: Faker::FunnyName.name,
         exercise_type: "strength",
-        equipment: "none"
+        equipment: "none",
+        description: Faker::Quote.famous_last_words
     ) 
 end
 
