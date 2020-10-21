@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy', as: 'logout'
   post 'repetitions', to: 'repetitions#create', as: 'repetitions'
   delete 'repetition', to: 'repetitions#destroy', as: 'repetition'
+  post 'exercise', to: 'exercise#create', as: 'exercise'
 
   resources :users, only: [:new, :create, :edit, :update] do
     resources :workouts, only: [:new, :create]

@@ -5,6 +5,8 @@ class CreateRepetitions < ActiveRecord::Migration[6.0]
       t.integer :exercise_id
       t.integer :reps
       t.integer :sets
+
+      t.timestamps
     end
   end
 end
