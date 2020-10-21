@@ -41,10 +41,14 @@
 
   <div class='notice'>
     <% if flash[:notice] %> 
-      <% flash.each do |k, v|%>
-        <% v.each do |msg|%>
-         <%= content_tag :div, msg %>
-        <% end %>  
+      <% if flash[:notice].is_a?(Array) %>
+        <% flash.each do |k, v|%>
+          <% v.each do |msg|%>
+            <%= content_tag :div, msg %>
+          <% end %>  
+        <% end %>
+      <% else %>
+          <%= flash[:notice] %>
       <% end %>
     <% end %>
   </div>
