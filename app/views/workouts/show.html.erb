@@ -9,7 +9,7 @@
          <ul class="show-rep">
             <% @workout.repetitions.each do |rep| %>
                 <% @exercise = Exercise.find_by(id: rep.exercise_id) %>
-                <li class="rep">Name: <%= @exercise.name %><br>Type: <%= @exercise.exercise_type %> - Equipment: <%= @exercise.equipment %><br> Reps: <%= rep.reps %> - Sets: <%= rep.sets %></li>
+                <li class="rep">Name: <%= @exercise.name %><br>Type: <%= @exercise.exercise_type %> - Equipment: <%= @exercise.equipment %><br> Reps: <%= rep.reps %> - Sets: <%= rep.sets %><br><%= @exercise.description %></li>
             <% end %>
         </ul>
     <% end %> 
