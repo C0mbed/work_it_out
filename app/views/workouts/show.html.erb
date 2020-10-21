@@ -13,7 +13,10 @@
             <% end %>
         </ul>
     <% end %> 
-
+ 
+    <% if current_user.id == @workout.user_id %>
+        <%= link_to "edit workout", edit_workout_path(@workout) %><br>
+    <% end %>
     <%= link_to "add exercises", workout_exercises_path(@workout) %><br>
     <%= link_to "all workouts", workouts_path %>   
 </div>

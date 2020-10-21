@@ -1,5 +1,7 @@
 class WorkoutsController < ApplicationController
   before_action :set_user
+  before_action :set_workout
+  skip_before_action :set_workout, only: [:index]
   before_action :check_login
   helper_method :params
 
@@ -40,16 +42,23 @@ class WorkoutsController < ApplicationController
   end
 
   def show
-    @workout = Workout.find(params[:id])
   end
 
   def edit
-    @workout = Workout.find(params[:id])
+  end
+
+  def update
+    @workout.update(title: params[:workout][:title], difficulty: params[:workout][:difficulty], minutes: params[:workout][:minutes], workout_type: params[:workout][:workout_type])
+    redirect_to workout_path(@workout)
   end
 
   private
   def set_user
     @user = current_user
+  end
+
+  def set_workout
+    @workout = Workout.find(params[:id])
   end
 
   def workout_params
