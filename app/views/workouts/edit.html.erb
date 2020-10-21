@@ -12,7 +12,7 @@
          <ul class="show-rep">
             <% @workout.repetitions.each do |rep| %> 
               <% @exercise = Exercise.find_by(id: rep.exercise_id) %>
-              <li class="rep">Name: <%= @exercise.name %><br>Type: <%= @exercise.exercise_type %> - Equipment: <%= @exercise.equipment %><br> Reps: <%= rep.reps %> - Sets: <%= rep.sets %><br><%= link_to 'edit', edit_workout_exercise_repetition_path(rep.workout_id, rep.exercise_id, rep.id) %><br></li>
+              <li class="rep">Name: <%= @exercise.name %><br>Type: <%= @exercise.exercise_type %> - Equipment: <%= @exercise.equipment %><br> Reps: <%= rep.reps %> - Sets: <%= rep.sets %><br><%= link_to 'edit', edit_workout_exercise_repetition_path(rep.workout_id, rep.exercise_id, rep.id) %><br><%= link_to 'remove', workout_exercise_repetition_path(rep.workout_id, rep.exercise_id, rep.id), controller: :repetitions, method: :delete, data: {confirm: 'are you sure?'} %></li>
             <% end %>
         </ul>
     <% end %> 

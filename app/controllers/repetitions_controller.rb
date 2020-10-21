@@ -39,6 +39,10 @@ class RepetitionsController < ApplicationController
 
     def destroy
         @repetition = Repetition.find(params[:id])
+        workout_id = @repetition.workout_id
+        @repetition.destroy
+        
+        redirect_to edit_workout_path(workout_id)
     end
 
     private
