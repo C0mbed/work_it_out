@@ -28,7 +28,17 @@ class RepetitionsController < ApplicationController
     end
 
     def edit
-        byebug
+        @repetition = Repetition.find(params[:id])
+    end
+
+    def update
+        @repetition = Repetition.find(params[:id])
+        @repetition.update(workout_id: params[:repetition][:workout_id], exercise_id: params[:repetition][:exercise_id], reps: params[:repetition][:reps], sets: params[:repetition][:sets])
+        redirect_to edit_workout_path(@repetition.workout_id)
+    end
+
+    def destroy
+        @repetition = Repetition.find(params[:id])
     end
 
     private

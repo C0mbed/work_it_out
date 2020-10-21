@@ -1,7 +1,7 @@
 class WorkoutsController < ApplicationController
   before_action :set_user
   before_action :set_workout
-  skip_before_action :set_workout, only: [:index]
+  skip_before_action :set_workout, only: [:index, :new]
   before_action :check_login
   helper_method :params
 
