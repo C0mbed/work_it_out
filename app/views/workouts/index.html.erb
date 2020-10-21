@@ -2,9 +2,9 @@
   <%@workouts.each do |workout|%>
       <div class="card-workout-info">
         <h5 class="card-title"><%= link_to "#{workout.title}", workout_path(workout) %></h5>
-        <p class="card-content"><%= workout.workout_type %></p>
-        <p class="card-content"><%= workout.difficulty%></p>
-        <p class="card-content"><%= workout.minutes %></p>
+        <p class="card-content">workout type: <%= workout.workout_type %></p>
+        <p class="card-content">difficulty: <%= workout.difficulty %></p>
+        <p class="card-content"><%= workout.minutes %> minutes</p>
         <p class="card-content">created by <%= workout.user.first_name %></p>
       </div>
   <%end%>
