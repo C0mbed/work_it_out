@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user
+  skip_before_action :set_user, only: [:new, :create, :show]
   def new
     @user = User.new
   end
@@ -34,8 +36,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
-    @user = User.find(params[:id])
     if current_user.id == @user.id && logged_in?
       @user.update(user_params)
 
@@ -48,6 +52,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :admin)
