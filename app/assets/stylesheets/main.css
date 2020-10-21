@@ -16,6 +16,17 @@ section {
     width: 100%
 }
 
+.rep {
+    list-style-type: none;
+    padding: 2px;
+    margin-bottom: 10px;
+    border: 1px solid #d90429;
+}
+
+.show-rep {
+    padding: 0px;
+}
+
 .navbar {
     position: relative;
     display: flex;
