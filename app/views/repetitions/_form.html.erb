@@ -2,10 +2,8 @@
   <%= f.hidden_field :workout_id, :value => params[:workout_id] %>
   <%=  f.hidden_field :exercise_id, :value => params[:exercise_id] %>
 
-  <%= f.label :reps %>
-  <%= f.text_field :reps %>
-
-  <%= f.label :sets %>
-  <%= f.text_field :sets %>
+  <h5>Add to Workout</h5>
+  <%= f.text_field :reps, class: 'fadeIn first', placeholder: 'number of reps'  %>
+  <%= f.text_field :sets, class: 'fadeIn second', placeholder: 'number of sets'  %>
 
   <%= f.submit "submit" %>
