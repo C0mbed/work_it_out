@@ -18,7 +18,12 @@ class RepetitionsController < ApplicationController
             
             redirect_to workout_path(@repetition.workout_id)
         else
-            redirect_to workouts_path
+            flash[:notice] = []
+            @repetition.errors.full_messages.each do |msg|
+              flash[:notice] << "#{msg}"
+            end
+    
+            redirect_to new_workout_exercise_repetition_path(@repetition.workout_id, @repetition.exercise_id)
         end
     end
 

@@ -5,5 +5,4 @@ class Repetition < ActiveRecord::Base
   validates :sets, presence: true
   validates :reps, numericality: { only_integer: true }
   validates :sets, numericality: { only_integer: true }
-
 end
