@@ -1,13 +1,19 @@
 class WorkoutsController < ApplicationController
   before_action :set_user
   before_action :check_login
+  helper_method :params
 
   def new
     @workout = Workout.new
   end
 
   def index
-    @workouts = Workout.all
+    @users = User.all
+    if !params[:user].blank?
+      @workouts = Workout.by_user(params[:user])   
+    else
+      @workouts = Workout.all
+    end
   end
 
   def create

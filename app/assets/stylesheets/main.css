@@ -27,6 +27,13 @@ section {
     padding: 0px;
 }
 
+.dropdown {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .navbar {
     position: relative;
     display: flex;
@@ -73,7 +80,7 @@ section {
 }
 
 .card-workout-info {
-    margin-top: 40px;
+    margin-bottom: 40px;
     margin-left: auto;
     margin-right: auto;
     -webkit-border-radius: 10px 10px 10px 10px;

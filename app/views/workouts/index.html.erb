@@ -1,3 +1,15 @@
+<% if !params[:user].blank? %>
+  <% @workout = Workout.where(user_id: params[:user_id]) %>
+  <% byebug %>
+<% end %>
+
+<div class="dropdown">
+      <%= form_tag("/workouts", method: "get") do %>
+      <%= select_tag "user", options_from_collection_for_select(User.all, "id", "first_name"), include_blank: true %>
+      <%= submit_tag "Filter" %>
+    <% end %>
+</div>
+
 <%if !@workouts.nil? %>
   <%@workouts.each do |workout|%>
       <div class="card-workout-info">
