@@ -1,9 +1,20 @@
 <div class="wrapper fadeInDown">
-  <div id="formContent">
-
-    <%= form_with(model: @exercise, url: workout_exercises_path(@workout), method: :post)  do |f| %>
-       <%= render :partial => 'form', :locals => { :f => f } %>
-      <br>
-      <%=link_to "cancel", workout_exercises_path %>
+    <div id="formContent">
+    <% if params[:workout_id] %>
+        <% @workout = Workout.find(params[:workout_id])%>
+        <%= form_with(model: @exercise, url: workout_exercises_path(@workout), method: :post)  do |f| %>
+            <%= render :partial => 'form', :locals => { :f => f } %><br>
+        <% end %>
+    <% else %>
+        <%= form_with model: @exercise  do |f| %>
+            <%= render :partial => 'form', :locals => { :f => f } %><br>
+        <% end %>
     <% end %>
+
+    <% if params[:workout_id] %>
+        <%=link_to "cancel", workout_exercises_path %>
+    <% else %>
+        <%=link_to "cancel", exercises_path %>
+    <% end %>
+  </div>
 </div>

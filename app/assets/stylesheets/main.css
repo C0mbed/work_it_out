@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: #8d99ae;
+    background-color: #8D99AE;
 }
 
 header {
@@ -20,7 +20,7 @@ section {
     list-style-type: none;
     padding: 2px;
     margin-bottom: 10px;
-    border: 1px solid #d90429;
+    border: 1px solid #D90429;
 }
 
 .show-rep {
@@ -128,7 +128,7 @@ section {
     margin-top: 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: #fff;
+    background: #FFF;
     padding: 30px;
     width: 90%;
     max-width: 450px;

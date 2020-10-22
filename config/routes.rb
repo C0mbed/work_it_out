@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :workouts, only: [:new, :create]
   end
 
+  resources :exercises
+
   resources :workouts do
     resources :exercises do
       resources :repetitions

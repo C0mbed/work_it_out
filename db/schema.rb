@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2020_10_08_013720) do
     t.integer "exercise_id"
     t.integer "reps"
     t.integer "sets"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,7 +36,6 @@ ActiveRecord::Schema.define(version: 2020_10_08_013720) do
     t.string "email"
     t.string "password_digest"
     t.string "uid"
-    t.boolean "admin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
