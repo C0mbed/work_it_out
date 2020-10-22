@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user
   skip_before_action :set_user, only: [:new, :create, :show]
+  
   def new
-    @user = User.new
+    if logged_in?
+      redirect_to workouts_path
+    else
+      @user = User.new
+    end
   end
 
   def create

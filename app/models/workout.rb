@@ -3,7 +3,11 @@ class Workout < ActiveRecord::Base
   has_many :repetitions
   has_many :exercises, through: :repetitions
 
-  def self.by_user(user_id)
-    where(user: user_id)
+  def self.filter(user_id)
+    if !user_id.blank?
+      Workout.where(id: user_id)   
+    else
+      Workout.all
+    end
   end
 end

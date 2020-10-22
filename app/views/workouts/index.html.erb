@@ -1,6 +1,6 @@
 <div class="dropdown">
       <%= form_tag("/workouts", method: "get") do %>
-      <%= select_tag "user", options_from_collection_for_select(@users, "id", "first_name"), include_blank: true %>
+      <%= select_tag "user", options_from_collection_for_select(@users, "id", "first_name"), include_blank: 'user name' %>
       <%= submit_tag "Filter" %>
     <% end %>
 </div>

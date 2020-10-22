@@ -5,11 +5,8 @@ class ExercisesController < ApplicationController
   end
   
   def index
-    @exercises = Exercise.all
     @workout = Workout.find_by(id: params[:workout_id])
-    if @exercises.length == 0
-      redirect_to new_workout_exercise_path
-    end
+    @exercises = Exercise.filter(params[:exercise_type])
   end
   
   def create

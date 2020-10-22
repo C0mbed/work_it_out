@@ -11,11 +11,7 @@ class WorkoutsController < ApplicationController
 
   def index
     @users = User.all
-    if !params[:user].blank?
-      @workouts = Workout.by_user(params[:user])   
-    else
-      @workouts = Workout.all
-    end
+    @workouts = Workout.filter(params[:user])
   end
 
   def create
