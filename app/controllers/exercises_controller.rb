@@ -15,13 +15,13 @@ class ExercisesController < ApplicationController
   def create
     @exercise = Exercise.find_by(name: params[:exercise][:name])
     if !@exercise.nil?
-        redirect_to workout_exercises_path
+        redirect_to exercises_path
     else
       @exercise = Exercise.create(exercise_params)
       if @exercise.save
         @exercise = Exercise.find_by(name: exercise_params[:name])
 
-        redirect_to workout_exercises_path
+        redirect_to exercises_path
       else
         redirect_to new_workout_exercise_path(@exercise.workout_id)
       end

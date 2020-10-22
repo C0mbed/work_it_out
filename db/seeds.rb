@@ -15,21 +15,40 @@
     )
 end
 
-30.times do
+15.times do
     Exercise.create(
         name: Faker::FunnyName.name,
         exercise_type: "strength",
-        equipment: "none",
+        equipment: "Weights",
         description: Faker::Quote.famous_last_words
     ) 
 end
 
-10.times do
+15.times do
+    Exercise.create(
+        name: Faker::FunnyName.name,
+        exercise_type: "Aerobic",
+        equipment: "None",
+        description: Faker::Quote.famous_last_words
+    ) 
+end
+
+5.times do
     Workout.create(
         title: Faker::FunnyName.name,
         difficulty: "hard",
         minutes: 50,
         workout_type: "strength",
-        user_id: 1
+        user_id: 4
+    )
+end
+
+5.times do
+    Workout.create(
+        title: Faker::FunnyName.name,
+        difficulty: "easy",
+        minutes: 30,
+        workout_type: "Aerobic",
+        user_id: 5
     )
 end

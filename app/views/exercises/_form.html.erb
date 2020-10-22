@@ -1,6 +1,5 @@
 <% if params[:workout_id] %>
     <%= f.hidden_field :workout_id, :value => params[:workout_id] %>
-    <% byebug %>
 <% end %>
 
 <%= f.text_field :name, class: 'fadeIn first', placeholder: 'exercise name' %>
