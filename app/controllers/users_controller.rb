@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user
   skip_before_action :set_user, only: [:new, :create, :show]
   before_action :check_login
-  skip_before_action :check_login, only: [:new, :create]
+  skip_before_action :check_login, only: [:new, :create, :edit]
   
   def new
     if logged_in?
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if current_user.id != params[:id]
+    if current_user.id != params[:id].to_i 
       redirect_to workouts_path
     end 
   end
