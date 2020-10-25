@@ -1,20 +1,23 @@
 <div class="card-workout-info">
   <h3 class="card-title">Exercises</h3>
-  <% if @exercises.length > 0 %>
-    <ul class="show-rep">
-      <% @exercises.each do |exercise| %>
-        <% if !@workout.nil? %>
-          <li class="rep">Name: <%= exercise.name %><br>Type: <%= exercise.exercise_type %> - Equipment: <%= exercise.equipment %><br><%= exercise.description %><br><%= link_to "Add", new_workout_exercise_repetition_path(@workout, exercise) %></li>
-        <% else %>
-          <li class="rep">Name: <%= exercise.name %><br>Type: <%= exercise.exercise_type %> - Equipment: <%= exercise.equipment %><br><%= exercise.description %></li>
-        <% end %>
+  <% if !@workout.nil? %>
+        <%= link_to "new exercise", new_workout_exercise_path(@workout) %><br>
+        <%= link_to "cancel", workout_path(@workout) %>
+      <% else %>
+        <%= link_to "new exercise", new_exercise_path %><br>
       <% end %>
-    </ul>
-    <% if !@workout.nil? %>
-      <%= link_to "new exercise", new_workout_exercise_path(@workout) %><br>
-      <%= link_to "cancel", workout_path(@workout) %>
-    <% else %>
-      <%= link_to "new exercise", new_exercise_path %><br>
-    <% end %>
-  <% end %> 
 </div>
+
+<% if @exercises.length > 0 %>
+  <% @exercises.each do |exercise| %>
+    <div class="card-workout-info">
+        <p class="card-content">Name: <%= exercise.name %></p>
+        <p class="card-content">Type: <%= exercise.exercise_type %></p> 
+        <p class="card-content">Equipment: <%= exercise.equipment %></p>
+        <p class="card=content"><%= exercise.description %></p>
+        <% if !@workout.nil? %>
+          <%= link_to "Add", new_workout_exercise_repetition_path(@workout, exercise) %></p>
+        <% end %>
+    </div>
+  <% end %> 
+<% end %>
