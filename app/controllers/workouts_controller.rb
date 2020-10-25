@@ -18,10 +18,10 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find_by(title: workout_params[:title])
     if !@workout.nil?
       if session[:user_id] == @workout.user_id
-        redirect_to "workout/#{@workout.id}"
+        redirect_to workout_path(@workout)
       else
-        #error message
-        redirect_to 'workouts'
+        flash[:notice] = "you are not authorized to view this page"
+        redirect_to workouts_path
       end
     else
       @workout = Workout.new(workout_params)
@@ -30,9 +30,14 @@ class WorkoutsController < ApplicationController
       if @workout.save
         @workout = Workout.find_by(title: workout_params[:title])
 
-        redirect_to "/workouts/#{@workout.id}"
+        redirect_to workout_path(@workout)
       else
-        redirect_to 'workouts'
+        flash[:notice] = []
+        @workout.errors.full_messages.each do |msg|
+          flash[:notice] << "#{msg}"
+        end
+        
+        redirect_to new_workout_path
       end
     end
   end
