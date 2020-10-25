@@ -5,7 +5,9 @@ class Workout < ActiveRecord::Base
   validates :title, presence: true
   validates :title, uniqueness: true
   validates :minutes, presence: true
+  validates :minutes, numericality: { integer: true }
   validates :difficulty, presence: true
+ 
 
   def self.filter(user_id)
     if !user_id.blank?
