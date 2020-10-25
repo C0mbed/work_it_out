@@ -48,6 +48,13 @@ class WorkoutsController < ApplicationController
   def edit
   end
 
+  def destroy
+    byebug
+    @workout.destroy
+    
+    redirect_to workouts_path
+end
+
   def update
     @workout.update(title: params[:workout][:title], difficulty: params[:workout][:difficulty], minutes: params[:workout][:minutes], workout_type: params[:workout][:workout_type])
     redirect_to workout_path(@workout)

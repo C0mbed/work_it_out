@@ -3,6 +3,7 @@
     <%= form_with model: @workout do |f| %>
        <%= render :partial => 'form', :locals => { :f => f } %>
       <br>
+      <%= link_to "delete", workout_path(@workout), controller: :workouts, method: :delete, data: {confirm: 'are you sure?'} %><br>
       <%=link_to "cancel", workout_path(@workout) %>
     <% end %>
 </div>
