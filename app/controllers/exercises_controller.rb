@@ -1,4 +1,5 @@
 class ExercisesController < ApplicationController
+  before_action :check_login
   
   def new
     @exercise = Exercise.new
@@ -6,7 +7,7 @@ class ExercisesController < ApplicationController
   
   def index
     @workout = Workout.find_by(id: params[:workout_id])
-    @exercises = Exercise.filter(params[:exercise_type])
+    @exercises = Exercise.all
   end
   
   def create

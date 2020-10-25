@@ -1,10 +1,3 @@
-<div class="dropdown">
-      <%= form_with url: exercises_path, method: :get do |f| %>
-      <%= f.select :exercise_type, Exercise.pluck(:exercise_type).uniq, { include_blank: 'exercise type' } %>
-      <%= f.submit "Filter" %>
-    <% end %>
-</div>
-
 <div class="card-workout-info">
   <h3 class="card-title">Exercises</h3>
   <% if @exercises.length > 0 %>

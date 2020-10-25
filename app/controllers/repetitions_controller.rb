@@ -1,4 +1,6 @@
 class RepetitionsController < ApplicationController
+    before_action :check_login
+    
     def new
         @repetition = Repetition.new
         @workout = Workout.find_by(id: params[:workout_id])
@@ -46,6 +48,11 @@ class RepetitionsController < ApplicationController
     end
 
     private
+    def check_login
+        if !logged_in?
+          redirect_to login_path
+        end 
+      end
 
     def repetitions_params
         params.require(:repetition).permit(:workout_id, :exercise_id, :reps, :sets)
