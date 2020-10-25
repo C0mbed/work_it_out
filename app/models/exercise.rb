@@ -3,5 +3,6 @@ class Exercise < ActiveRecord::Base
   has_many :workouts, through: :repetitions
   validates :name, presence: true
   validates :name, uniqueness: true
-  validates :type, presence: true
+  validates :exercise_type, presence: true
+  validates :description, presence: true
 end

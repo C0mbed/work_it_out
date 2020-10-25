@@ -12,6 +12,9 @@ class ExercisesController < ApplicationController
   
   def create
     @exercise = Exercise.find_by(name: params[:exercise][:name])
+    if params[:workout]
+      @workout = Workout.find(params[:difficulty])
+    end
     if !@exercise.nil?
         redirect_to exercises_path
     else
@@ -21,7 +24,15 @@ class ExercisesController < ApplicationController
 
         redirect_to exercises_path
       else
-        redirect_to new_workout_exercise_path(@exercise.workout_id)
+        flash[:notice] = []
+        @exercise.errors.full_messages.each do |msg|
+          flash[:notice] << "#{msg}"
+        end
+        if !@workout
+          redirect_to new_exercise_path
+        else
+          redirect_to new_workout_exercise_path(@workout)
+        end
       end
     end
   end
