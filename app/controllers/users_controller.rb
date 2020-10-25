@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user
   skip_before_action :set_user, only: [:new, :create, :show]
+  before_action :check_login
+  skip_before_action :check_login, only: [:new, :create]
   
   def new
     if logged_in?
@@ -36,6 +38,9 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if current_user.id != params[:id]
+      redirect_to workouts_path
+    end 
   end
 
   def update
@@ -58,5 +63,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :admin)
+  end
+
+  def check_login
+    if !logged_in?
+      redirect_to login_path
+    end 
   end
 end
