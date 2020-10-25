@@ -1,3 +1,9 @@
+<div class="card-workout-info">
+  <h3 class="card-title">Workouts</h3>
+  <%= link_to "new workout", new_workout_path %><br>
+</div>
+
+
 <div class="dropdown">
       <%= form_tag("/workouts", method: "get") do %>
       <%= select_tag "user", options_from_collection_for_select(@users, "id", "first_name"), include_blank: 'user name' %>

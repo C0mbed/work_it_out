@@ -5,18 +5,27 @@
     <h5 class="card-content"><%= @workout.minutes %> minutes</h5>
     <p class="card-content">created by <%= @workout.user.first_name %></p>
 
-    <% if @workout.repetitions.length > 0 %>
-         <ul class="show-rep">
-            <% @workout.repetitions.each do |rep| %>
-                <% @exercise = Exercise.find_by(id: rep.exercise_id) %>
-                <li class="rep">Name: <%= @exercise.name %><br>Type: <%= @exercise.exercise_type %> - Equipment: <%= @exercise.equipment %><br> Reps: <%= rep.reps %> - Sets: <%= rep.sets %><br><%= @exercise.description %></li>
-            <% end %>
-        </ul>
-    <% end %> 
- 
     <% if current_user.id == @workout.user_id %>
         <%= link_to "edit workout", edit_workout_path(@workout) %><br>
         <%= link_to "add exercises", workout_exercises_path(@workout) %><br>
     <% end %>
-    <%= link_to "all workouts", workouts_path %>   
+    <%= link_to "all workouts", workouts_path %>  
 </div>
+
+<% if @workout.repetitions.length > 0 %>
+  <% @workout.repetitions.each do |rep| %>
+    <% @exercise = Exercise.find_by(id: rep.exercise_id) %>
+    <div class="card-workout-info">
+        <p class="card-content">Name: <%= @exercise.name %></p>
+        <p class="card-content">Type: <%= @exercise.exercise_type %></p> 
+        <p class="card-content">Equipment: <%= @exercise.equipment %></p>
+        <p class="card-content">Reps: <%= rep.reps %></p>
+        <p class="card-content">Sets: <%= rep.sets %></p>
+        <p class="card=content"><%= @exercise.description %></p>
+        <% if !@workout.nil? %>
+          <%= link_to "Add", new_workout_exercise_repetition_path(@workout, @exercise) %></p>
+        <% end %>
+    </div>
+  <% end %> 
+<% end %>
+  
