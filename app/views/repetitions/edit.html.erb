@@ -3,6 +3,6 @@
     <%= form_with model: @repetition, url: workout_exercise_repetition_path(@repetition)  do |f| %>
        <%= render :partial => 'form', :locals => { :f => f } %>
       <br>
-      <%=link_to "cancel", workouts_path %>
+      <%=link_to "cancel", edit_workout_path(@repetition.workout_id) %>
     <% end %>
 </div>

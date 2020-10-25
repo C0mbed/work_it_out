@@ -8,15 +8,18 @@
     <% end %>
 </div>
 
-<div class="card-workout-info">
-  <% if @workout.repetitions.length > 0 %>
-         <ul class="show-rep">
-            <% @workout.repetitions.each do |rep| %> 
-              <% @exercise = Exercise.find_by(id: rep.exercise_id) %>
-              <li class="rep">Name: <%= @exercise.name %><br>Type: <%= @exercise.exercise_type %> - Equipment: <%= @exercise.equipment %><br> Reps: <%= rep.reps %> - Sets: <%= rep.sets %><br><%= link_to 'edit', edit_workout_exercise_repetition_path(rep.workout_id, rep.exercise_id, rep.id) %><br><%= link_to 'remove', workout_exercise_repetition_path(rep.workout_id, rep.exercise_id, rep.id), controller: :repetitions, method: :delete, data: {confirm: 'are you sure?'} %></li>
-            <% end %>
-        </ul>
-    <% else %>
-      <%= link_to 'add exercise', workout_exercises_path(@workout) %>
-    <% end %> 
-</div>
+<% if @workout.repetitions.length > 0 %>
+  <% @workout.repetitions.each do |rep| %>
+    <% @exercise = Exercise.find_by(id: rep.exercise_id) %>
+    <div class="card-workout-info">
+        <p class="card-content">Name: <%= @exercise.name %></p>
+        <p class="card-content">Type: <%= @exercise.exercise_type %></p> 
+        <p class="card-content">Equipment: <%= @exercise.equipment %></p>
+        <p class="card-content">Reps: <%= rep.reps %></p>
+        <p class="card-content">Sets: <%= rep.sets %></p>
+        <p class="card=content"><%= @exercise.description %></p>
+        <%= link_to 'edit', edit_workout_exercise_repetition_path(rep.workout_id, rep.exercise_id, rep.id) %><br>
+        <%= link_to 'remove', workout_exercise_repetition_path(rep.workout_id, rep.exercise_id, rep.id), controller: :repetitions, method: :delete, data: {confirm: 'are you sure?'} %>
+    </div>
+  <% end %> 
+<% end %>
