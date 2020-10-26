@@ -1,18 +1,19 @@
 # Work It Out
 
-This is an application that allows a user to create a workout and exercises and to add the exercises to the workout.
+This is an application that allows a user to create a custom workout, or to view other users workouts.  Users can add exercises to their own workouts and include custom repetitions and sets.
 
 Key Features: 
 
 - Account creation/User creation/User Authentication/Facebook Login
 - Creating Workouts by title, difficulty, minutes, and workout type.
-- Users can view other users workouts, and all exercises.  
-- Create Exercises by themselves or directly attached to the user Workout.   
-- Assign Exercises to Workouts, and add repetitions and set counts. 
+- Create Exercises by themselves or directly attached to the user Workout.  
+- Users can view all created workouts, and all created exercises, and edit their own workouts.    
+- Exercises can be assigned to Workouts by adding repetitions and sets.
+- Exercises can be edited or removed from the workout.  
 - Account management and deletion
 - Management and deletion of Exercises and Workouts.  
 
-## Installation & Usage - Assumes Rails is installed on your computer
+## Installation & Usage - Requires Rails
 1. Clone this repository;
 2. From the local directory you cloned this repository to, type ```bundle install``` to install the required gems.  
 3. From the command line type ```rails s``` and navigate to [http://localhost:3030/](http://localhost:3030/).
